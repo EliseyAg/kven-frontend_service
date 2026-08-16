@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<meta http-equiv="refresh" content="30">
+{% endblock %}
+
+{% block title %}
+Личные сообщения
+{% endblock %}
+
+{% block body %}
+<link href="/static/css/styles.css" rel="stylesheet"/>
+<div class="messenger">
+    <div class="chats_list">
+        {0}
+    </div>
+
+    <div class="chat_list_bottom__outer">
+        <div class="chat_list_bottom__inner">
+            <div id="button_new_chat">
+                <li><a href="/personlist"><span>Новый чат</span></a></li>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat_body">
+        {% block chat %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

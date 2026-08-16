@@ -1,0 +1,29 @@
+{% extends 'messenger.html' %}
+
+{% block meta %}
+<meta http-equiv="refresh" content="30">
+{% endblock %}
+
+{% block title %}
+Чат с {1}
+{% endblock %}
+
+{% block chat %}
+
+<div class="chat_header">
+
+</div>
+
+<div class="chat">
+    {2}
+</div>
+
+<div class="chat_footer">
+    <form autocomplete="off" method="post">
+        <div><label>Написать: </label><input type="text" name="message" value="" requered><input type="submit" value="Отправить"></div>
+    </form>
+</div>
+
+<script type="text/javascript" src={{url_for('static',filename='JS/autorefresh.js')}}></script>
+
+{% endblock %}

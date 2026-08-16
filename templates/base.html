@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {% block meta %}{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link href="/static/css/styles.css" rel="stylesheet"/>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">KVEN</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/">Главная</a>
+        <a class="p-2 text-dark" href="/about">Про нас</a>
+        <a class="p-2 text-dark" href="#">Поддержать нас</a>
+      </nav>
+      <a class="btn btn-outline-primary" href="/login">Войти</a>
+    </div>
+    {% block body %}{% endblock %}
+    <div>
+        <div class="navmenu__outer">
+            <div class="navmenu__inner">
+                <div id="navmenu">
+                    <a class="p-2 text-dark" href="/profile"><icon id="navmenu"><img class="icon" src="/static/gallery/icons/profile.png" width="100%"/></icon></a>
+                    <a class="p-2 text-dark" href="/news/new"><icon id="navmenu"><img class="icon" src="/static/gallery/icons/news.png" width="100%"/></icon></a>
+                    <a class="p-2 text-dark" href="#"><icon id="navmenu"><img class="icon" src="/static/gallery/icons/video.png" width="100%"/></icon></a>
+                    <a class="p-2 text-dark" href="/messenger"><icon id="navmenu"><img class="icon" src="/static/gallery/icons/messenger.png" width="100%"/></icon></a>
+                    <a class="p-2 text-dark" href="#">Сообщества</a>
+                    <a class="p-2 text-dark" href="/friendslist">Друзья</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
