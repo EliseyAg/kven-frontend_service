@@ -54,3 +54,7 @@ def login():
     except Exception as e:
         flash(f'Login error: {str(e)}', 'error')
         return render_template('auth/login.html'), 500
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
