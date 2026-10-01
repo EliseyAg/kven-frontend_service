@@ -1,4 +1,4 @@
-from flask import requests
+from flask import request
 import json
 
 
@@ -9,7 +9,7 @@ class APIClient:
         self.posts_url = posts_url
 
     def login(self, username, password):
-        response = requests.post(
+        response = request.post(
             f"{self.auth_url}/api/auth/login",
             json={
                 'username': username,
@@ -24,7 +24,7 @@ class APIClient:
             return {'error': response.json().get('error', 'Login failed')}
 
     def register(self, username, password):
-        response = requests.post(
+        response = request.post(
             f"{self.auth_url}/api/auth/register",
             json={
                 'username': username,

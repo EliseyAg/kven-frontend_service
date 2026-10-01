@@ -3,7 +3,7 @@ import os
 import sys
 from datetime import timedelta
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ''))
 
 from config import Config
 from utils.api_client import APIClient
@@ -16,6 +16,13 @@ app.secret_key = Config.SECRET_KEY
 
 app.permanent_session_lifetime = timedelta(hours=1)
 
+
+@app.context_processor
+def inject_user():
+    return {
+        'current_user': session.get('user'),
+        'is_authenticated': 'user' in session
+    }
 
 @app.route('/')
 def index():
@@ -46,7 +53,7 @@ def login():
             session.permanent = True
 
             flash('Login successful!', 'success')
-            return redirect(url_for('feed'))
+            return redirect(url_for('f eed'))
         else:
             flash('Invalid credentials', 'error')
             return render_template('auth/login.html'), 401
@@ -57,4 +64,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8001)
